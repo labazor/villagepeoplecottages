@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VillagePeopleCottages</title>
-  
 <!-- Bootstrap -->
-<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
-<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
-<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
-<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+<link href="../css/bootstrap-4.0.0.css" rel="stylesheet">
+<link href="../jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="../jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="../jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+<script src="../jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="../jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
 </head>
 <body style="padding-top: 70px">
 <!-- body code goes here -->
@@ -23,11 +21,11 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"> <a class="nav-link" href="#">Toimipisteet <span class="sr-only">(current)</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="palvelu/palvelu.html">Palvelut</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="asiakas/asiakas.html">Asiakkaat</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="varaus/varaus.html">Varaukset</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="lasku/lasku.html">Laskut</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="../toimipiste/toimipiste.html">Toimipisteet</a> </li>
+          <li class="nav-item active"> <a class="nav-link" href="#">Palvelut <span class="sr-only">(current)</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="../asiakas/asiakas.html">Asiakkaat</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="../varaus/varaus.html">Varaukset</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="../lasku/lasku.html">Laskut</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">Raportit</a> </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -38,19 +36,20 @@
     </nav>
   </header>
   <main>
-    <h2>Toimipisteet</h2>
+    <h2>Palvelut</h2>
     <!--Table-->
     <table id="tablePreview" class="table">
       <!--Table head-->
       <thead>
         <tr>
           <th>#</th>
+          <th>Toimipiste</th>
+          <th>Palvelutyyppi</th>
           <th>Nimi</th>
-          <th>Lähiosoite</th>
-          <th>Postinumero</th>
-          <th>Postitoimipaikka</th>
-          <th>Puhelinnumero</th>
-          <th>Email</th>
+          <th>Kuvaus</th>
+          <th>Hinta</th>
+          <th>Alv</th>
+          <th>Hinta + Alv</th>
           <th></th>
         </tr>
       </thead>
@@ -59,23 +58,25 @@
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>toistuva toimipistekohta</td>
-          <td>Tie</td>
-          <td>12345</td>
-          <td>Paikka</td>
-          <td>12345678</td>
-          <td>email</td>
+          <td>toistuva palvelukohta</td>
+          <td>tyyppi</td>
+          <td>palvelu</td>
+          <td>kuvaava</td>
+          <td>123</td>
+          <td>24</td>
+          <td>149</td>
           <td><button type="button" class="btn btn-sm">E</button>
             <button type="button" class="btn btn-sm">X</button></td>
         </tr>
         <tr>
           <th scope="row">2</th>
-          <td>toistuva toimipistekohta</td>
-          <td>Tie</td>
-          <td>12345</td>
-          <td>Paikka</td>
-          <td>12345678</td>
-          <td>email</td>
+          <td>toistuva palvelukohta</td>
+          <td>tyyppi</td>
+          <td>palvelu</td>
+          <td>kuvaava</td>
+          <td>123</td>
+          <td>24</td>
+          <td>149</td>
           <td><button type="button" class="btn btn-sm">E</button>
             <button type="button" class="btn btn-sm">X</button></td>
         </tr>
@@ -88,10 +89,10 @@
   <footer></footer>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-3.2.1.min.js"></script> 
+<script src="../js/jquery-3.2.1.min.js"></script> 
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/popper.min.js"></script> 
-<script src="js/bootstrap-4.0.0.js"></script>
+<script src="../js/popper.min.js"></script> 
+<script src="../js/bootstrap-4.0.0.js"></script>
 </body>
 </html>

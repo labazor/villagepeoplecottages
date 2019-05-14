@@ -10,6 +10,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import villagepeoplecottages.palvelu.Palvelu;
 import villagepeoplecottages.varaus.Varaus;
 
@@ -17,6 +18,7 @@ import villagepeoplecottages.varaus.Varaus;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Setter
 public class Toimipiste extends AbstractPersistable<Long>{
 
 	private String nimi;

@@ -1,4 +1,4 @@
-package villagepeoplecottages.Lasku;
+package villagepeoplecottages.lasku;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

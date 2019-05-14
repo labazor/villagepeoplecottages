@@ -13,8 +13,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import villagepeoplecottages.Lasku.Lasku;
 import villagepeoplecottages.asiakas.Asiakas;
+import villagepeoplecottages.lasku.Lasku;
 import villagepeoplecottages.palvelu.Palvelu;
 import villagepeoplecottages.toimipiste.Toimipiste;
 

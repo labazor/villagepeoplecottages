@@ -10,7 +10,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import villagepeoplecottages.Lasku.Lasku;
+import villagepeoplecottages.lasku.Lasku;
 import villagepeoplecottages.varaus.Varaus;
 
 @Entity

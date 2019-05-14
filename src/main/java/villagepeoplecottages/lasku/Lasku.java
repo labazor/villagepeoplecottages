@@ -1,4 +1,4 @@
-package villagepeoplecottages.Lasku;
+package villagepeoplecottages.lasku;
 
 import java.time.LocalDate;
 

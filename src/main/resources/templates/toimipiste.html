@@ -37,15 +37,15 @@
       <td th:text="${toimipiste.puhelinnro}">12345678</td>
       <td th:text="${toimipiste.email}">email</td>
       <td>
-      	<a th:href="@{/toimipiste/{id}/muokkaa(id=${toimipiste.id})}"><button type="button" class="btn btn-sm">E</button></a> 
-      	<a th:href="@{/toimipiste/{id}/poista(id=${toimipiste.id})}"><button type="button" class="btn btn-sm">X</button></td>
+      	<a th:href="@{/toimipisteet/{id}/muokkaa(id=${toimipiste.id})}"><button type="button" class="btn btn-sm">E</button></a> 
+      	<a th:href="@{/toimipisteet/{id}/poista(id=${toimipiste.id})}"><button type="button" class="btn btn-sm">X</button></td>
   	</tr>
    
   </tbody>
   <!--Table body-->
 </table>
 <!--Table-->
-	    <a href="/toimipiste/uusi"><button type="button" onclick="window.location.href = 'toimipiste/uusi';" class="btn btn-lg">Lisää uusi</button></a>
+	    <a href="/toimipisteet/uusi"><button type="button" onclick="window.location.href = 'toimipisteet/uusi';" class="btn btn-lg">Lisää uusi</button></a>
       </main>
 	  <footer></footer>
     </div>

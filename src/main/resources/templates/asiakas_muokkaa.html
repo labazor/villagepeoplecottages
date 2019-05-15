@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body style="padding-top: 70px">
+<!-- body code goes here -->
+<div class="container">
+  <header th:replace="fragments/layout :: header"></header>
+  <main>
+    <h2>Asiakkaan muokkaus</h2>
+    <form action="/asiakkaat/muokkaa/" method="POST">
+      <div class="form-group">
+        <label for="enimi">Etunimi</label>
+        <input type="text" class="form-control" name="enimi" id="enimi">
+      </div>
+      <div class="form-group">
+        <label for="snimi">Sukunimi</label>
+        <input class="form-control" name="snimi" id="snimi">
+      </div>
+      <div class="form-group">
+        <label for="katu">Lähiosoite</label>
+        <input class="form-control" name="lahiosoite" id="katu">
+      </div>
+      <div class="form-group">
+        <label for="postinro">Postinumero</label>
+        <input type="text" class="form-control" name="postinro" id="postinro">
+      </div>
+      <div class="form-group">
+        <label for="postitoimipaikka">Postitoimipaikka</label>
+        <input type="text" class="form-control" name="postitoimipaikka" id="postitoimipaikka">
+      </div>
+      <div class="form-group">
+        <label for="puhnro">Puhelinnumero</label>
+        <input type="text" class="form-control" name="puhelinnro" id="puhnro">
+      </div>
+      <div class="form-group">
+        <label for="meili">Email</label>
+        <input type="email" class="form-control" name="email" id="meili">
+      </div>
+      <button type="submit" class="btn btn-primary">Lisää muokattu</button>
+    </form>
+  </main>
+  <footer></footer>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<element th:replace="fragments/layout :: jQuery"></element>
+</body>
+</html>

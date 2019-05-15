@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head th:replace="fragments/layout :: head"></head>
+<head th:replace="fragments/layout :: head">
+</head>
 
 <body style="padding-top: 70px">
 <!-- body code goes here -->
 <div class="container">
-  
   <header th:replace="fragments/layout :: header"></header>
-  
   <main>
     <h2>Palvelun lisäys</h2>
     <form action="/palvelut/uusi/" method="POST">
-<div class="form-group">
+      <div class="form-group">
         <label for="toimipiste">Toimipiste</label>
- 	  <div class="dropdown show" id="toimipiste"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Valitse toimipiste </a>
-	    <div class="dropdown-menu">
-	      <a class="dropdown-item" href="#">Toimipiste 1</a> <a class="dropdown-item" href="#">Toimipiste 2</a>
+        <select class="form-control" name="toimipiste" id="toimipiste">
+          <option selected="true" disabled="disabled">Valitse toimipiste</option>
+          <option>Toimipiste 1</option>
+          <option>Toimipiste 2</option>
+        </select>
       </div>
-      </div>
-	</div>
-	<div class="form-group">
+      <div class="form-group">
         <label for="tyyppi">Palvelun tyyppi</label>
- 	  <div class="dropdown show" id="tyyppi"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Valitse palvelun tyyppi </a>
-	    <div class="dropdown-menu">
-	      <a class="dropdown-item" href="#">Tyyppi 1</a> <a class="dropdown-item" href="#">Tyyppi 2</a>
+        <select class="form-control" name="tyyppi" id="tyyppi">
+          <option selected="true" disabled="disabled">Valitse tyyppi</option>
+          <option>Tyyppi 1</option>
+          <option>Tyyppi 2</option>
+        </select>
       </div>
-      </div>
-		</div>
       <div class="form-group">
         <label for="nimi">Palvelun nimi</label>
         <input class="form-control" name="nimi" id="nimi" placeholder="Palvelun nimi">
@@ -49,7 +47,7 @@
   </main>
   <footer></footer>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <element th:replace="fragments/layout :: jQuery"></element>
 </body>
 </html>

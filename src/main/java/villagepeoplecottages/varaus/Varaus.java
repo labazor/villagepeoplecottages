@@ -27,10 +27,6 @@ public class Varaus extends AbstractPersistable<Long> {
 	private LocalDate varattuPvm;
     private LocalDate vahvistusPvm;
     
-    private String asiakasEtunimi;
-    private String asiakasSukunimi;
-    private String toimipisteNimi;
-    
     @ManyToMany
     private List<Palvelu> palvelut;
     

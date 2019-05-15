@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body style="padding-top: 70px">
+<!-- body code goes here -->
+<div class="container">
+  <header th:replace="fragments/layout :: header"></header>
+  <main>
+    <h2>Laskun muokkaus</h2>
+    <form action="/laskut/muokkaa/" method="POST">
+      <div class="form-group">
+        <label for="toimipiste">Toimipiste</label>
+        <select class="form-control" name="toimipiste" id="toimipiste">
+          <option selected="true" disabled="disabled">Valitse toimipiste</option>
+          <option>Toimipiste 1</option>
+          <option>Toimipiste 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="varaus">Varaus</label>
+        <select class="form-control" name="varaus" id="varaus">
+          <option selected="true" disabled="disabled">Valitse varaus</option>
+          <option>Toimipiste 1</option>
+          <option>Toimipiste 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="asiakas">Asiakas</label>
+        <select class="form-control" name="asiakas" id="asiakas">
+          <option selected="true" disabled="disabled">Valitse asiakas</option>
+          <option>Asiakas 1</option>
+          <option>Asiakas 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tila">Tila</label>
+        <select class="form-control" name="tila" id="tila">
+          <option selected="true" disabled="disabled">Valitse tila</option>
+          <option>Lähetetty</option>
+          <option>Hukattu jonnekin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="paivays">Päiväys</label>
+        <input id="paivays" class="form-control" name="paivays">
+      </div>
+      <div class="form-group">
+        <label for="nimi">Nimi</label>
+        <input type="text" class="form-control" name="nimi" id="nimi">
+      </div>
+      <div class="form-group">
+        <label for="katu">Lähiosoite</label>
+        <input class="form-control" name="lahiosoite" id="katu">
+      </div>
+      <div class="form-group">
+        <label for="postinro">Postinumero</label>
+        <input type="text" class="form-control" name="postinro" id="postinro">
+      </div>
+      <div class="form-group">
+        <label for="postitoimipaikka">Postitoimipaikka</label>
+        <input type="text" class="form-control" name="postitoimipaikka" id="postitoimipaikka">
+      </div>
+      <div class="form-group">
+        <label for="hinta">Hinta</label>
+        <input type="text" class="form-control" name="hinta" id="hinta">
+      </div>
+      <div class="form-group">
+        <label for="alv">Alv</label>
+        <input type="text" class="form-control" name="alv" id="alv">
+      </div>
+      <button type="submit" class="btn btn-primary">Lisää muokattu</button>
+    </form>
+  </main>
+  <footer></footer>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<element th:replace="fragments/layout :: jQuery"></element>
+<script type="text/javascript">
+$(function() {
+	$( "#paivays" ).datepicker();
+});
+</script>
+</body>
+</html>

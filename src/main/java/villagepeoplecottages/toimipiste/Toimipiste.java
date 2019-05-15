@@ -28,7 +28,7 @@ public class Toimipiste extends AbstractPersistable<Long>{
     private String email;
     private String puhelinnro;
     
-    @OneToMany
+    @OneToMany(mappedBy="toimipiste")
     private List<Palvelu> palvelut;
     
     @OneToMany

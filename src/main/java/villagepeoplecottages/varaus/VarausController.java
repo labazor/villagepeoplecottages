@@ -60,9 +60,9 @@ public class VarausController {
 		
 		Toimipiste t = toimipisteRepository.findByNimi(toimipiste);
 		
-		Varaus v = new Varaus(LocalDate.parse(varattu), LocalDate.parse(vahvistus), new ArrayList<>(), new ArrayList<>(), a, t);
+//		Varaus v = new Varaus(LocalDate., LocalDate.parse(vahvistus), new ArrayList<>(), new ArrayList<>(), a, t);
 		
-		varausRepository.save(v);
+//		varausRepository.save(v);
 		
 		return "redirect:/varaukset";
 		

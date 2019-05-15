@@ -31,6 +31,7 @@ public class AsiakasController {
 	
 	@GetMapping("/asiakkaat/uusi")
 	public String uusiPalvelu(Model model) {
+		model.addAttribute("module", "asiakkaat");
 		
 		return "asiakas_uusi";
 	}

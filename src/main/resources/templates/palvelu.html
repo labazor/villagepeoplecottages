@@ -41,7 +41,7 @@
 	      <td th:text="${palvelu.hinta} + ${palvelu.alv}"></td>
 	      <td>
       		<a th:href="@{/palvelut/{id}/muokkaa(id=${palvelu.id})}"><button type="button" class="btn btn-sm">E</button></a> 
-      		<a th:href="@{/palvelut/{id}/poista(id=${palvelu.id})}"><button type="button" class="btn btn-sm">X</button></td>
+      		<a th:href="@{/palvelut/{id}/poista(id=${palvelu.id})}"><button type="button" class="btn btn-sm">X</button></a></td>
   		</tr>
      
       </tbody>

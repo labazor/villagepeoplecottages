@@ -22,13 +22,17 @@ public class ToimipisteController {
 	@GetMapping("/toimipisteet")
 	public String getToimipiste(Model model) {
 		
+		model.addAttribute("module", "toimipisteet");
+		
 		model.addAttribute("toimipisteet", toimipisteRepository.findAll());
 		
 		return "toimipiste";
 	}
 	
 	@GetMapping("/toimipisteet/uusi")
-	public String uusiToimipiste() {
+	public String uusiToimipiste(Model model) {
+		
+		model.addAttribute("module", "toimipisteet");
 		
 		return "toimipiste_uusi";
 	}

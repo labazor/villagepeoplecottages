@@ -19,12 +19,12 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"> <a class="nav-link" href="/toimipisteet">Toimipisteet <span class="sr-only">(current)</span></a> </li>
-            <li class="nav-item"> <a class="nav-link" href="/palvelut">Palvelut</a> </li>
-			<li class="nav-item"> <a class="nav-link" href="/asiakkaat">Asiakkaat</a> </li>
-			<li class="nav-item"> <a class="nav-link" href="/varaukset">Varaukset</a> </li>
-			<li class="nav-item"> <a class="nav-link" href="/laskut">Laskut</a> </li>
-			<li class="nav-item"> <a class="nav-link" href="/raportit">Raportit</a> </li>
+            <li class="nav-item" th:classappend="${module == 'toimipisteet' ? 'active' : ''}"> <a class="nav-link" href="/toimipisteet">Toimipisteet <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item" th:classappend="${module == 'palvelut' ? 'active' : ''}"> <a class="nav-link" href="/palvelut">Palvelut</a> </li>
+			<li class="nav-item" th:classappend="${module == 'asiakkaat' ? 'active' : ''}"> <a class="nav-link" href="/asiakkaat">Asiakkaat</a> </li>
+			<li class="nav-item" th:classappend="${module == 'varaukset' ? 'active' : ''}"> <a class="nav-link" href="/varaukset">Varaukset</a> </li>
+			<li class="nav-item" th:classappend="${module == 'laskut' ? 'active' : ''}"> <a class="nav-link" href="/laskut">Laskut</a> </li>
+			<li class="nav-item" th:classappend="${module == 'raportit' ? 'active' : ''}"> <a class="nav-link" href="/raportit">Raportit</a> </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

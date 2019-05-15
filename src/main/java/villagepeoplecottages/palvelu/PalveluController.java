@@ -14,6 +14,8 @@ public class PalveluController {
 	@GetMapping("/palvelut")
 	public String getPalvelu(Model model) {
 		
+		model.addAttribute("module", "palvelut");
+		
 		model.addAttribute("palvelut", palvelurepository.findAll());
 		
 		return "palvelu";

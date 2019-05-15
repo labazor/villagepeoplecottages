@@ -14,6 +14,8 @@ public class VarausController {
 	@GetMapping("/varaukset")
 	public String getVaraukset(Model model) {
 		
+		model.addAttribute("module", "varaukset");
+		
 		model.addAttribute("varaukset", varausRepository.findAll());
 		
 		return "varaus";

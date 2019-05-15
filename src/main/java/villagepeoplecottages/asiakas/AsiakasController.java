@@ -14,6 +14,8 @@ public class AsiakasController {
 	@GetMapping("/asiakkaat")
 	public String getAsiakkaat(Model model) {
 		
+		model.addAttribute("module", "asiakkaat");
+		
 		model.addAttribute("asiakkaat", asiakasRepository.findAll());
 		
 		return "asiakas";

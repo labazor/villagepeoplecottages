@@ -14,6 +14,8 @@ public class LaskuController {
 	@GetMapping("/laskut")
 	public String getLaskut(Model model) {
 		
+		model.addAttribute("module", "laskut");
+		
 		model.addAttribute("laskut", laskuRepository.findAll());
 		
 		return "lasku";

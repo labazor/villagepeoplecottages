@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head th:replace="fragments/layout :: head"></head>
+<head th:replace="fragments/layout :: head">
+</head>
 
 <body style="padding-top: 70px">
 <!-- body code goes here -->
 <div class="container">
-  
   <header th:replace="fragments/layout :: header"></header>
-  
   <main>
     <h2>Asiakkaan lisäys</h2>
     <form action="/asiakkaat/uusi/" method="POST">
@@ -45,7 +43,7 @@
   </main>
   <footer></footer>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <element th:replace="fragments/layout :: jQuery"></element>
 </body>
 </html>

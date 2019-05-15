@@ -52,4 +52,30 @@ public class ToimipisteController {
 		toimipisteRepository.deleteById(id);
 		return "redirect:/toimipisteet";
 	}
+	
+	@GetMapping("/toimipisteet/{id}/muokkaa")
+	public String muokkaaToimipiste(Model model, @PathVariable Long id) {
+
+		model.addAttribute("toimipiste", toimipisteRepository.getOne(id));
+		
+		return "toimipiste_muokkaa";
+	}
+	
+	@PostMapping("/toimipisteet/{id}/muokkaa")
+	public String postMuokkaaToimipiste(@PathVariable Long id, @RequestParam String nimi, @RequestParam String lahiosoite, @RequestParam String postitoimipaikka, 
+			@RequestParam String postinro, @RequestParam String email, @RequestParam String puhelinnro) {
+		
+		Toimipiste t = toimipisteRepository.getOne(id);
+		t.setNimi(nimi);
+		t.setLahiosoite(lahiosoite);
+		t.setPostitoimipaikka(postitoimipaikka);
+		t.setPostinro(postinro);
+		t.setEmail(email);
+		t.setPuhelinnro(puhelinnro);
+		
+		toimipisteRepository.save(t);
+		
+		return "redirect:/toimipisteet";
+		
+	}
 }

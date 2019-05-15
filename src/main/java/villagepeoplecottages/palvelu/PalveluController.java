@@ -62,4 +62,37 @@ public class PalveluController {
 		return "redirect:/palvelut";
 	}
 	
+	@GetMapping("/palvelut/{id}/muokkaa")
+	public String muokkaaPalvelu(Model model, @PathVariable Long id) {
+		
+		model.addAttribute("module", "palvelut");
+
+		model.addAttribute("toimipisteet", toimipisteRepository.findAll());
+		
+		model.addAttribute("palvelu", palvelurepository.getOne(id));
+		
+		return "palvelu_muokkaa";
+	}
+	
+	@PostMapping("/palvelut/{id}/muokkaa")
+	public String postMuokkaaPalvelu(@PathVariable Long id, @RequestParam String toimipiste, @RequestParam String tyyppi, @RequestParam String nimi, 
+			@RequestParam String kuvaus, @RequestParam String hinta, @RequestParam String alv) {
+		
+		Toimipiste t = toimipisteRepository.findByNimi(toimipiste);
+		
+		Palvelu p = palvelurepository.getOne(id);
+		
+		p.setToimipiste(t);
+		p.setTyyppi(tyyppi);
+		p.setNimi(nimi);
+		p.setKuvaus(kuvaus);
+		p.setHinta(Double.parseDouble(hinta));
+		p.setAlv(Double.parseDouble(alv));
+		
+		palvelurepository.save(p);
+		
+		return "redirect:/palvelut";
+		
+	}
+	
 }

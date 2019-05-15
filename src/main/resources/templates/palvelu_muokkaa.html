@@ -9,38 +9,39 @@
   <header th:replace="fragments/layout :: header"></header>
   <main>
     <h2>Palvelun muokkaus</h2>
-    <form action="/palvelut/muokkaa/" method="POST">
+    <form th:action="@{/palvelut/{id}/muokkaa(id=${palvelu.id})}" method="POST">
       <div class="form-group">
         <label for="toimipiste">Toimipiste</label>
         <select class="form-control" name="toimipiste" id="toimipiste">
-          <option selected="true" disabled="disabled">Valitse toimipiste</option>
-          <option>Toimipiste 1</option>
-          <option>Toimipiste 2</option>
+          <option selected="true" th:text="${palvelu.toimipiste.nimi}">Valitse toimipiste</option>
+          <option th:if="${toimipiste.nimi} != ${palvelu.toimipiste.nimi}" th:each="toimipiste : ${toimipisteet}">
+          	<element th:text="${toimipiste.nimi}"></element>
+          </option>
         </select>
       </div>
       <div class="form-group">
         <label for="tyyppi">Palvelun tyyppi</label>
         <select class="form-control" name="tyyppi" id="tyyppi">
-          <option selected="true" disabled="disabled">Valitse tyyppi</option>
-          <option>Tyyppi 1</option>
-          <option>Tyyppi 2</option>
+          <option selected="true" th:text="${palvelu.tyyppi}">Valitse tyyppi</option>
+          <option th:if="${palvelu.tyyppi} != 'Majoitus'">Majoitus</option>
+          <option th:if="${palvelu.tyyppi} != 'Lisäpalvelu'">Lisäpalvelu</option>
         </select>
       </div>
       <div class="form-group">
         <label for="nimi">Palvelun nimi</label>
-        <input type="text" class="form-control" name="nimi" id="nimi">
+        <input type="text" class="form-control" name="nimi" id="nimi" th:value="${palvelu.nimi}">
       </div>
       <div class="form-group">
         <label for="kuvaus">Palvelun kuvaus</label>
-        <input type="text" class="form-control" name="kuvaus" id="kuvaus">
+        <input type="text" class="form-control" name="kuvaus" id="kuvaus" th:value="${palvelu.kuvaus}">
       </div>
       <div class="form-group">
         <label for="hinta">Hinta</label>
-        <input type="number" step="0.01" class="form-control" name="hinta" id="hinta">
+        <input type="number" step="0.01" class="form-control" name="hinta" id="hinta" th:value="${palvelu.hinta}">
       </div>
       <div class="form-group">
         <label for="alv">Alv</label>
-        <input type="number" step="0.01" class="form-control" name="alv" id="alv">
+        <input type="number" step="0.01" class="form-control" name="alv" id="alv" th:value="${palvelu.alv}">
       </div>
       <button type="submit" class="btn btn-primary">Lisää muokattu</button>
     </form>

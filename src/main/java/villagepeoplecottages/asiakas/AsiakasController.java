@@ -30,14 +30,14 @@ public class AsiakasController {
 	}
 	
 	@GetMapping("/asiakkaat/uusi")
-	public String uusiPalvelu(Model model) {
+	public String uusiAsiakas(Model model) {
 		model.addAttribute("module", "asiakkaat");
 		
 		return "asiakas_uusi";
 	}
 	
 	@PostMapping("asiakkaat/uusi")
-	public String postPalvelu(@RequestParam String enimi, @RequestParam String snimi,
+	public String postAsiakas(@RequestParam String enimi, @RequestParam String snimi,
 			@RequestParam String lahiosoite, @RequestParam String postinro, @RequestParam String postitoimipaikka,
 			@RequestParam String puhelinnro, @RequestParam String email) {
 		
@@ -49,8 +49,38 @@ public class AsiakasController {
 	}
 	
 	@GetMapping("/asiakkaat/{id}/poista")
-	public String poistaPalvelu(@PathVariable Long id) {
+	public String poistaAsiakas(@PathVariable Long id) {
 		asiakasRepository.deleteById(id);
 		return "redirect:/asiakkaat";
+	}
+	
+	@GetMapping("/asiakkaat/{id}/muokkaa")
+	public String muokkaaAsiakas(Model model, @PathVariable Long id) {
+		model.addAttribute("module", "asiakkaat");
+
+		model.addAttribute("asiakas", asiakasRepository.getOne(id));
+		
+		return "asiakas_muokkaa";
+	}
+	
+	@PostMapping("/asiakkaat/{id}/muokkaa")
+	public String postMuokkaaAsiakas(@PathVariable Long id, @RequestParam String enimi, @RequestParam String snimi,
+			@RequestParam String lahiosoite, @RequestParam String postinro, @RequestParam String postitoimipaikka,
+			@RequestParam String puhelinnro, @RequestParam String email) {
+		
+		Asiakas a = asiakasRepository.getOne(id);
+		
+		a.setEtunimi(enimi);
+		a.setSukunimi(snimi);
+		a.setLahiosoite(lahiosoite);
+		a.setPostinro(postinro);
+		a.setPostitoimipaikka(postitoimipaikka);
+		a.setPuhelinnro(puhelinnro);
+		a.setEmail(email);
+		
+		asiakasRepository.save(a);
+		
+		return "redirect:/asiakkaat";
+		
 	}
 }

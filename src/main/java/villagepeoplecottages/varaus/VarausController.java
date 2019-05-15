@@ -1,6 +1,8 @@
 package villagepeoplecottages.varaus;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import villagepeoplecottages.asiakas.Asiakas;
 import villagepeoplecottages.asiakas.AsiakasRepository;
 import villagepeoplecottages.palvelu.Palvelu;
+import villagepeoplecottages.palvelu.PalveluRepository;
 import villagepeoplecottages.toimipiste.Toimipiste;
 import villagepeoplecottages.toimipiste.ToimipisteRepository;
 
@@ -28,6 +31,9 @@ public class VarausController {
 	
 	@Autowired
 	AsiakasRepository asiakasRepository;
+	
+	@Autowired
+	PalveluRepository palveluRepository;
 	
 	@GetMapping("/varaukset")
 	public String getVaraukset(Model model) {
@@ -46,6 +52,8 @@ public class VarausController {
 		
 		model.addAttribute("toimipisteet", toimipisteRepository.findAll());
 		
+		model.addAttribute("palvelut", palveluRepository.findAll());
+		
 		model.addAttribute("asiakkaat", asiakasRepository.findAll());
 		
 		return "varaus_uusi";
@@ -54,15 +62,18 @@ public class VarausController {
 	@PostMapping("/varaukset/uusi")
 	public String postVaraus(@RequestParam String toimipiste, @RequestParam String asiakas, @RequestParam String varattu, @RequestParam String vahvistus) {
 		
+		LocalDate va = LocalDate.parse(varattu);
+		LocalDate vs = LocalDate.parse(vahvistus);
+		
 		String[] asiakasIdString = asiakas.split(" ");
 		long asiakasId = Long.parseLong(asiakasIdString[0]);
 		Asiakas a = asiakasRepository.getOne(asiakasId);
 		
 		Toimipiste t = toimipisteRepository.findByNimi(toimipiste);
 		
-//		Varaus v = new Varaus(LocalDate., LocalDate.parse(vahvistus), new ArrayList<>(), new ArrayList<>(), a, t);
+		Varaus v = new Varaus(va, vs, new ArrayList<>(), new ArrayList<>(), a, t);
 		
-//		varausRepository.save(v);
+		varausRepository.save(v);
 		
 		return "redirect:/varaukset";
 		

@@ -12,17 +12,14 @@
   <main>
     <h2>Varaukset</h2>
     <!--Table-->
-    <table id="tablePreview" class="table">
+    <p th:if="${#lists.isEmpty(varaukset)}">Ei vielä varauksia</p>
+    <table th:if="${not #lists.isEmpty(varaukset)}" id="tablePreview" class="table">
       <!--Table head-->
       <thead>
         <tr>
           <th>#</th>
-          <th>Asiakas ID</th>
           <th>Toimipiste</th>
-          <th>Palvelutyyppi</th>
-          <th>Palvelun nimi</th>
-          <th>Palvelun alku</th>
-          <th>Palvelun loppu</th>
+          <th>Asiakas ID</th>
           <th>Varattu</th>
           <th>Vahvistettu</th>
           <th></th>
@@ -31,37 +28,23 @@
       <!--Table head--> 
       <!--Table body-->
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>1</td>
-          <td>piste</td>
-          <td>esimerkki</td>
-          <td>nmi</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>1</td>
-          <td>piste</td>
-          <td>esimerkki</td>
-          <td>nmi</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td>1.1.2019</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
+        
+        <tr th:each="varaus : ${varaukset}">
+	  	  <th scope="row" th:text="${varaus.id}">1</th>
+	      <td th:text="${varaus.toimipiste.nimi}"></td>
+	      <td th:text="${varaus.asiakas.id}"></td>
+	      <td th:text="${varaus.varattuPvm}"></td>
+	      <td th:text="${varaus.vahvistettuPvm}"></td>
+	      <td>
+      		<a th:href="@{/varaukset/{id}/muokkaa(id=${varaus.id})}"><button type="button" class="btn btn-sm">E</button></a> 
+      		<a th:href="@{/varaukset/{id}/poista(id=${varaus.id})}"><button type="button" class="btn btn-sm">X</button></td>
+  		</tr>
+        
       </tbody>
       <!--Table body-->
     </table>
     <!--Table-->
-    <button type="button" class="btn btn-sm">Lisää uusi</button>
+    <a href="/varaukset/uusi"><button type="button" class="btn btn-sm">Lisää uusi</button></a>
   </main>
   <footer></footer>
 </div>

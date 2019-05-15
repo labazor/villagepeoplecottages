@@ -10,7 +10,8 @@
   <main>
     <h2>Laskut</h2>
     <!--Table-->
-    <table id="tablePreview" class="table">
+    <p th:if="${#lists.isEmpty(laskut)}">Ei vielä laskuja</p>
+    <table th:if="${not #lists.isEmpty(laskut)}" id="tablePreview" class="table">
       <!--Table head-->
       <thead>
         <tr>
@@ -33,45 +34,30 @@
       <!--Table head--> 
       <!--Table body-->
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>piste</td>
-          <td>1</td>
-          <td>1</td>
-          <td>esimerkki</td>
-          <td>1.1.2019</td>
-          <td>nmi</td>
-          <td>osoite</td>
-          <td>123</td>
-          <td>paikka</td>
-          <td>123</td>
-          <td>123</td>
-          <td>123</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-           <td>piste</td>
-          <td>1</td>
-          <td>1</td>
-          <td>esimerkki</td>
-          <td>1.1.2019</td>
-          <td>nmi</td>
-          <td>osoite</td>
-          <td>123</td>
-          <td>paikka</td>
-          <td>123</td>
-          <td>123</td>
-          <td>123</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
+        <tr th:each="lasku : ${laskut}">
+	  	  <th scope="row" th:text="${lasku.id}">1</th>
+	      <td th:text="${lasku.toimipiste}"></td>
+	      <td th:text="${lasku.varaus.id}"></td>
+	      <td th:text="${lasku.asiakas.id}"></td>
+	      <td th:text="${lasku.tila}"></td>
+	      <td th:text="${lasku.paivays}"></td>
+	      <td th:text="${lasku.asiakas.nimi}"></td>
+	      <td th:text="${lasku.asiakas.etunimi} + ${lasku.asiakas.sukunimi}"></td>
+	      <td th:text="${lasku.asiakas.lahiosoite}"></td>
+	      <td th:text="${lasku.asiakas.postinro}"></td>
+	      <td th:text="${lasku.asiakas.postitoimipaikka}"></td>
+	      <td th:text="${lasku.summa}"></td>
+	      <td th:text="${lasku.alv}"></td>
+	      <td th:text="${lasku.summa} + ${lasku.alv}"></td>
+	      <td>
+      		<a th:href="@{/laskut/{id}/muokkaa(id=${lasku.id})}"><button type="button" class="btn btn-sm">E</button></a> 
+      		<a th:href="@{/laskut/{id}/poista(id=${lasku.id})}"><button type="button" class="btn btn-sm">X</button></td>
+  		</tr>
       </tbody>
       <!--Table body-->
     </table>
     <!--Table-->
-    <button type="button" class="btn btn-sm">Lisää uusi</button>
+    <a href="/laskut/uusi"><button type="button" class="btn btn-sm">Lisää uusi</button></a>
   </main>
   <footer></footer>
 </div>

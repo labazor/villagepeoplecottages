@@ -12,7 +12,8 @@
   <main>
     <h2>Palvelut</h2>
     <!--Table-->
-    <table id="tablePreview" class="table">
+    <p th:if="${#lists.isEmpty(palvelut)}">Ei vielä palveluita</p>
+    <table th:if="${not #lists.isEmpty(palvelut)}" id="tablePreview" class="table">
       <!--Table head-->
       <thead>
         <tr>
@@ -30,35 +31,24 @@
       <!--Table head--> 
       <!--Table body-->
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>toistuva palvelukohta</td>
-          <td>tyyppi</td>
-          <td>palvelu</td>
-          <td>kuvaava</td>
-          <td>123</td>
-          <td>24</td>
-          <td>149</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>toistuva palvelukohta</td>
-          <td>tyyppi</td>
-          <td>palvelu</td>
-          <td>kuvaava</td>
-          <td>123</td>
-          <td>24</td>
-          <td>149</td>
-          <td><button type="button" class="btn btn-sm">E</button>
-            <button type="button" class="btn btn-sm">X</button></td>
-        </tr>
+      	<tr th:each="palvelu : ${palvelut}">
+	  	  <th scope="row" th:text="${palvelu.id}">1</th>
+	      <td th:text="${palvelu.toimipiste.nimi}"></td>
+	      <td th:text="${palvelu.tyyppi}"></td>
+	      <td th:text="${palvelu.kuvaus}"></td>
+	      <td th:text="${palvelu.hinta}"></td>
+	      <td th:text="${palvelu.alv}"></td>
+	      <td th:text="${palvelu.hinta} + ${palvelu.alv}"></td>
+	      <td>
+      		<a th:href="@{/palvelut/{id}/muokkaa(id=${palvelu.id})}"><button type="button" class="btn btn-sm">E</button></a> 
+      		<a th:href="@{/palvelut/{id}/poista(id=${palvelu.id})}"><button type="button" class="btn btn-sm">X</button></td>
+  		</tr>
+     
       </tbody>
       <!--Table body-->
     </table>
     <!--Table-->
-    <a href="/palvelu/uusi"><button type="button" class="btn btn-sm">Lisää uusi</button></a>
+    <a href="/palvelut/uusi"><button type="button" class="btn btn-sm">Lisää uusi</button></a>
   </main>
   <footer></footer>
 </div>

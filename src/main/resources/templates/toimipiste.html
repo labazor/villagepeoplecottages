@@ -11,7 +11,9 @@
 		  <!--Table-->
 		  
 		  <p th:if="${#lists.isEmpty(toimipisteet)}">Ei vielä toimipisteitä</p>
+
 <table th:if="${not #lists.isEmpty(toimipisteet)}" id="tablePreview" class="table">
+
 <!--Table head-->
   <thead>
     <tr>
@@ -45,7 +47,7 @@
   <!--Table body-->
 </table>
 <!--Table-->
-	    <a href="/toimipisteet/uusi"><button type="button" onclick="window.location.href = 'toimipisteet/uusi';" class="btn btn-lg">Lisää uusi</button></a>
+	    <a href="/toimipisteet/uusi"><button type="button" onclick="window.location.href = 'toimipisteet/uusi';" class="btn btn-sm">Lisää uusi</button></a>
       </main>
 	  <footer></footer>
     </div>

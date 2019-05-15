@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body style="padding-top: 70px">
+<!-- body code goes here -->
+<div class="container">
+  <header th:replace="fragments/layout :: header"></header>
+  <main>
+    <h2>Varauksen lisäys</h2>
+    <form action="/varaukset/uusi/" method="POST">
+      <div class="form-group">
+      <label for="toimipiste">Toimipiste</label>
+      <div class="dropdown show" id="toimipiste"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Valitse toimipiste </a>
+        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Toimipiste 1</a> <a class="dropdown-item" href="#">Toimipiste 2</a> </div>
+      </div>
+		  </div>
+      <div class="form-group">
+      <label for="asiakas">Asiakas</label>
+      <div class="dropdown show" id="asiakas"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Valitse asiakas </a>
+        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Asiakas 1</a> <a class="dropdown-item" href="#">Asiakas 2</a> </div>
+      </div>
+		  </div>
+      <div class="form-group">
+        <label for="varattu">Varauspäivä</label>
+        <input id="varattu" class="form-control" name="varattu" placeholder="Varauspäivä">
+      </div>
+      <div class="form-group">
+        <label for="vahvistus">Vahvistuspäivä</label>
+        <input id="vahvistus" class="form-control" name="vahvistus" placeholder="Vahvistuspäivä">
+      </div>
+      <button type="submit" class="btn btn-primary">Lisää uusi</button>
+    </form>
+  </main>
+  <footer></footer>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<element th:replace="fragments/layout :: jQuery"></element>
+<script type="text/javascript">
+$(function() {
+	$( "#varattu" ).datepicker();
+	$( "#vahvistus" ).datepicker(); 
+});
+</script>
+</body>
+</html>
